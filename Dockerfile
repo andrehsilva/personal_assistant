@@ -25,4 +25,4 @@ EXPOSE 5000
 
 # 7. Defina o comando para iniciar a aplicação com Gunicorn.
 # Este comando será executado quando o container iniciar.
-CMD ["gunicorn", "--workers", "4", "--bind", "0.0.0.0:5000", "main:app"]
+CMD ["gunicorn", "--workers", "4", "--bind", "0.0.0.0:5000", "app:app"]
