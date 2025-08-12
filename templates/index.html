@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Controle de Agenda | Assistente IA</title>
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/assistant-icon.png') }}">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+  <script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+    createChat({
+      // URL DO SEU WEBHOOK ATUALIZADA
+      webhookUrl: 'https://webhook.sacadaweb.com.br/webhook/2c235679-f016-4119-9868-9f1c45a96680/chat',
+      target: '#n8n-chat',
+      mode: 'window', // O chat fica em uma janela flutuante no canto
+      showWelcomeScreen: false,
+      bot: { 
+        name: 'Assistente', 
+        avatar: "{{ url_for('static', filename='images/assistant-icon.png') }}" 
+      },
+      i18n: { 
+        'pt-BR': { 
+          title: 'Assistente de Agenda', 
+          subtitle: 'Online', 
+          inputPlaceholder: 'Digite um comando...' 
+        } 
+      },
+      chatInputKey: 'chatInput',
+      chatSessionKey: 'sessionId',
+      loadPreviousSession: true,
+      defaultLanguage: 'pt-BR',
+    });
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd', 400: '#60a5fa', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a' },
+          },
+          fontFamily: {
+            sans: ['DM Sans', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Estilos para o widget do n8n e outras personalizações */
+    :root {
+        --chat--border-radius: 1.0rem;
+        --chat--window--width: 400px;
+        --chat--window--height: 600px;
+        --chat--header--background: #2563eb;
+        --chat--header--color: #ffffff;
+        --chat--message--bot--background: #f1f5f9;
+        --chat--message--bot--color: #1f2937;
+        --chat--message--user--background: #dbeafe;
+        --chat--message--user--color: #1e40af;
+        --chat--color-primary: #2563eb;
+    }
+  </style>
+</head>
+<body class="font-sans bg-slate-50 text-gray-800 flex items-center justify-center min-h-screen">
+
+  <div id="n8n-chat"></div>
+
+  <main class="container mx-auto px-6 py-8 text-center">
+    <div class="max-w-3xl mx-auto">
+        
+        <i class="fas fa-calendar-check text-6xl text-primary-500 mb-6"></i>
+      
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">Sua Agenda Inteligente</h1>
+        <p class="text-lg text-gray-600 mb-8">
+          Use o assistente no canto inferior da tela para gerenciar seus compromissos. Você pode adicionar, remover e consultar eventos diretamente pelo chat.
+        </p>
+        
+        <div class="space-y-3 max-w-md mx-auto">
+            <h2 class="text-xl font-semibold text-gray-700 mb-3">Experimente dizer:</h2>
+            <div class="bg-white p-4 rounded-lg border border-gray-200 text-left flex items-center gap-4">
+                <i class="fas fa-plus text-primary-600 w-5 text-center"></i>
+                <span>Marcar reunião com a equipe amanhã às 15h.</span>
+            </div>
+            <div class="bg-white p-4 rounded-lg border border-gray-200 text-left flex items-center gap-4">
+                <i class="fas fa-search text-primary-600 w-5 text-center"></i>
+                <span>Quais são meus compromissos de hoje?</span>
+            </div>
+            <div class="bg-white p-4 rounded-lg border border-gray-200 text-left flex items-center gap-4">
+                <i class="fas fa-trash-alt text-primary-600 w-5 text-center"></i>
+                <span>Cancelar o dentista de sexta-feira.</span>
+            </div>
+        </div>
+
+        <div class="mt-12 text-gray-500 text-sm">
+            <p>Clique no balão de chat para começar.</p>
+        </div>
+    </div>
+  </main>
+
+</body>
+</html>
