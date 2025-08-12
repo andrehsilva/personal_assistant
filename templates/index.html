@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Controle de Agenda | Assistente IA</title>
+  <title>Seu Assistente Pessoal | Potencializado por IA</title>
   <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/assistant-icon.png') }}">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,10 +15,9 @@
   <script type="module">
     import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
     createChat({
-      // URL DO SEU WEBHOOK ATUALIZADA
       webhookUrl: 'https://webhook.sacadaweb.com.br/webhook/2c235679-f016-4119-9868-9f1c45a96680/chat',
       target: '#n8n-chat',
-      mode: 'window', // O chat fica em uma janela flutuante no canto
+      mode: 'window',
       showWelcomeScreen: false,
       bot: { 
         name: 'Assistente', 
@@ -26,9 +25,9 @@
       },
       i18n: { 
         'pt-BR': { 
-          title: 'Assistente de Agenda', 
+          title: 'Assistente Pessoal', // MUDANÇA: Título do chat
           subtitle: 'Online', 
-          inputPlaceholder: 'Digite um comando...' 
+          inputPlaceholder: 'Peça qualquer coisa...' // MUDANÇA: Placeholder
         } 
       },
       chatInputKey: 'chatInput',
@@ -54,7 +53,6 @@
     }
   </script>
   <style>
-    /* Estilos para o widget do n8n e outras personalizações */
     :root {
         --chat--border-radius: 1.0rem;
         --chat--window--width: 400px;
@@ -76,31 +74,35 @@
   <main class="container mx-auto px-6 py-8 text-center">
     <div class="max-w-3xl mx-auto">
         
-        <i class="fas fa-calendar-check text-6xl text-primary-500 mb-6"></i>
+        <i class="fas fa-robot text-6xl text-primary-500 mb-6"></i>
       
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">Sua Agenda Inteligente</h1>
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">O Copiloto para o seu Dia a Dia</h1>
         <p class="text-lg text-gray-600 mb-8">
-          Use o assistente no canto inferior da tela para gerenciar seus compromissos. Você pode adicionar, remover e consultar eventos diretamente pelo chat.
+          Use o assistente no canto da tela para otimizar sua rotina. Peça para agendar reuniões, redigir e-mails, pesquisar na web, consultar seus contatos e muito mais.
         </p>
         
         <div class="space-y-3 max-w-md mx-auto">
-            <h2 class="text-xl font-semibold text-gray-700 mb-3">Experimente dizer:</h2>
+            <h2 class="text-xl font-semibold text-gray-700 mb-3">Experimente pedir:</h2>
             <div class="bg-white p-4 rounded-lg border border-gray-200 text-left flex items-center gap-4">
-                <i class="fas fa-plus text-primary-600 w-5 text-center"></i>
-                <span>Marcar reunião com a equipe amanhã às 15h.</span>
+                <i class="fas fa-calendar-plus text-primary-600 w-5 text-center"></i>
+                <span>Agendar uma reunião com a equipe de marketing amanhã.</span>
             </div>
             <div class="bg-white p-4 rounded-lg border border-gray-200 text-left flex items-center gap-4">
-                <i class="fas fa-search text-primary-600 w-5 text-center"></i>
-                <span>Quais são meus compromissos de hoje?</span>
+                <i class="fas fa-envelope text-primary-600 w-5 text-center"></i>
+                <span>Redigir um e-mail de follow-up para o cliente da proposta X.</span>
             </div>
             <div class="bg-white p-4 rounded-lg border border-gray-200 text-left flex items-center gap-4">
-                <i class="fas fa-trash-alt text-primary-600 w-5 text-center"></i>
-                <span>Cancelar o dentista de sexta-feira.</span>
+                <i class="fas fa-globe text-primary-600 w-5 text-center"></i>
+                <span>Pesquise as últimas notícias sobre o mercado de tecnologia.</span>
+            </div>
+            <div class="bg-white p-4 rounded-lg border border-gray-200 text-left flex items-center gap-4">
+                <i class="fas fa-address-book text-primary-600 w-5 text-center"></i>
+                <span>Qual é o número de telefone da Paula editora?</span>
             </div>
         </div>
 
         <div class="mt-12 text-gray-500 text-sm">
-            <p>Clique no balão de chat para começar.</p>
+            <p>Clique no balão de chat para começar a interagir.</p>
         </div>
     </div>
   </main>
