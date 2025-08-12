@@ -17,17 +17,23 @@
     createChat({
       webhookUrl: 'https://webhook.sacadaweb.com.br/webhook/2c235679-f016-4119-9868-9f1c45a96680/chat',
       target: '#n8n-chat',
-      mode: 'window',
+      mode: 'window', 
       showWelcomeScreen: false,
       bot: { 
         name: 'Assistente', 
         avatar: "{{ url_for('static', filename='images/assistant-icon.png') }}" 
       },
+      // ✅ MENSAGENS INICIAIS TRADUZIDAS AQUI
+      initialMessages: [
+        'Olá! 😎',
+        'Como posso te ajudar hoje?'
+      ],
+      // ✅ TRADUÇÃO DA INTERFACE DO CHAT AQUI
       i18n: { 
         'pt-BR': { 
-          title: 'Assistente Pessoal', // MUDANÇA: Título do chat
-          subtitle: 'Online', 
-          inputPlaceholder: 'Peça qualquer coisa...' // MUDANÇA: Placeholder
+          title: 'Assistente Pessoal',
+          subtitle: 'Online',
+          inputPlaceholder: 'Peça qualquer coisa...' 
         } 
       },
       chatInputKey: 'chatInput',
